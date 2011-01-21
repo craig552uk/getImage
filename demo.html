@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <style>
+        body {            
+            background-color: #0092BF;
+            color: #FFF;
+        }
+        #wrapper {
+            text-align: center;
+            max-width: 1300px;      
+            margin: auto;
+            border: 5px dotted #FFF;
+            border-width: 0 5px;
+        }
+        img {
+            max-width: 100%;
+        }
+    </style>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            // max supported width, equivalent to 100% image size;
+            var container = '#wrapper'
+            var containerMaxWidth = 1300;
+            
+            // Calculate container width as percentage of max container width
+            var scale = Math.floor((($(container).width())/containerMaxWidth)*100);
+            if (scale > 100) { scale = 100; } // Limit max scale
+            
+            /* Set image scale for all scaleable images */
+            $('.scaleable-image').each(function(){
+                var src = $(this).attr('src').concat('&scale=',scale);
+                $(this).attr('src', src);
+            });            
+        });
+    </script>
+</head>
+<body>
+    <div id="wrapper">
+        <img class="scaleable-image" src="getimage.php?id=puppy" alt="Puppy asleep with a shoe" />
+        <p>Loads image appropriate to browser width. Narrow the browser and refresh.</p>
+    </div>
+</body>
+</html>
