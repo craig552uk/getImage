@@ -1,0 +1,24 @@
+Simple image library for serving up image files at different resolutions.
+Useful for serving images for responsive websites.
+
+Author:     Craig Russell
+Email:      craig@craig-russell.co.uk
+Web:        www.craig-russell.co.uk
+Copyright:  Puppy Image (c) 2009 Craig Russell
+            Source (c) 2011 Craig Russell
+
+- HOW TO USE -
+
+Image files are defined in the $images array like
+
+$images['id']['scale'] = "file";
+
+    id      A URL safe identifier for the image
+    scale   A percentage scale of the image file
+            100 is fullsize image
+            0   is default image
+            Define as many intermediate images as you want
+    file    The name of the image file
+
+Images are reqested like
+http://localhost/getimage.php?id=html5logo&scale=100
